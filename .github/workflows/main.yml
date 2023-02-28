@@ -1,0 +1,68 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          
+      # Checks-out Java
+      - uses: actions/setup-java@v2
+        with:
+          distribution: microsoft
+          java-version: 17
+
+      # Checks-out Node
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      # Identifies all relevant Java files that have been changed in latest commit
+      - name: Change Java
+        uses: tj-actions/changed-files@v13.1
+        id: change-java
+        with:
+          files: |
+            pom.xml
+            **/*.java
+
+      # Identifies all relevant TS files that have been changed in latest commit
+      - name: Change TS
+        uses: tj-actions/changed-files@v13.1
+        id: change-ts
+        with:
+          files: |
+            **/*.ts
+            **/*.json
+
+      # Runs type checker for Java files
+      - name: Run on Java files
+        if: steps.change-java.outputs.any_changed == 'true'
+        run: |
+          timeout 2m mvn -f hw3/pom.xml site
+
+      # Runs compiler and linter for TS files
+      - name: Run on TS files
+        if: steps.change-ts.outputs.any_changed == 'true'
+        run: |
+          timeout 2m npm install typescript/
+          timeout 2m npm run compile --prefix typescript/
+          timeout 2m npm run lint --prefix typescript/

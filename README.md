@@ -1,9 +1,20 @@
 # Santorini
 
-## How to start
-Back End: navigate to “/hw3” directory and running “mvn clean install” to install the dependencies, then run “mvn exec:exec” in the terminal to launch the backend server.
-
-Front End: navigate to “/frontend” directory and running “npm install” to install the dependencies, then run “npm start” command in the terminal. 
-
-## How to play
+## Game Rules
 https://roxley.com/products/santorini
+
+## How to start
+
+### 1. Start Backend Server:
+```bash
+cd /hw3
+mvn clean install
+mvn exec:exec
+```
+
+### 2. Render frontend:
+```bash
+cd /frontend
+npm install
+npm start
+```

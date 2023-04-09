@@ -7,7 +7,7 @@ https://roxley.com/products/santorini
 
 ### 1. Start Backend Server:
 ```bash
-cd /hw3
+cd /backend
 mvn clean install
 mvn exec:exec
 ```

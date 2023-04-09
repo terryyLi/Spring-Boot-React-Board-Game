@@ -57,7 +57,7 @@ jobs:
       - name: Run on Java files
         if: steps.change-java.outputs.any_changed == 'true'
         run: |
-          timeout 2m mvn -f hw3/pom.xml site
+          timeout 2m mvn -f backend/pom.xml site
 
       # Runs compiler and linter for TS files
       - name: Run on TS files

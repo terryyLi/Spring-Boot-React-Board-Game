@@ -8,8 +8,8 @@ http://files.roxley.com/Santorini-Rulebook-Web-2016.08.14.pdf
 ### 1. Start Backend Server:
 ```bash
 cd /backend
-mvn clean install
-mvn exec:exec
+mvn package
+java -jar target/santorini-0.0.1-SNAPSHOT.jar
 ```
 
 ### 2. Render frontend:

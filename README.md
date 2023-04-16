@@ -1,7 +1,7 @@
 # Santorini
 
 ## Game Rules
-https://roxley.com/products/santorini
+http://files.roxley.com/Santorini-Rulebook-Web-2016.08.14.pdf
 
 ## How to start
 

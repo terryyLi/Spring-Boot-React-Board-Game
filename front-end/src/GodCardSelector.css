@@ -1,0 +1,69 @@
+/* Reference: https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp */
+
+.overlay {
+    height: 100%;
+    opacity: 0;
+    width: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0, 0.98); 
+    transition: 0.5s; 
+}
+  
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center; 
+}
+
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    color: #515151;
+    display: block; 
+    transition: 0.3s;
+    width: 100%;
+}
+
+.overlay p {
+    padding: 8px;
+    font-size: large;
+    display: block; 
+    margin-top: 10vh;
+    margin-bottom: 0;
+
+}
+  
+.overlay a:hover, .overlay a:focus {
+    color: white;
+}
+  
+.overlay .submit-btn {
+    width: 10%;
+    border-radius: 999px;
+    box-shadow: #8f8fb3 0 10px 20px -10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 18px;
+    border: 0;
+} 
+
+.active {
+    width: 100%;
+    opacity: 1;
+}
+
+.dropdown-menu {
+    max-height:40vmin;
+    overflow: scroll;
+}
+
+.AI-switch {
+    color:white;
+    font-size: large;
+}
